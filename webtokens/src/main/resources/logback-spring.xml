@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration packagingData="true">            
+    <springProfile name="local">
+        <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>         
+        <include resource="org/springframework/boot/logging/logback/defaults.xml" />        
+        <property name="LOG_FILE" value="log/AppTokenCulqi.log}"/>                
+        <logger name="com.jofrantoba.culqitokens" level="DEBUG"/>
+        <logger name="org.springframework" level="INFO"/>    
+        <appender name="appenderConsole" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+                <charset>utf8</charset>
+            </encoder>
+        </appender>
+        <appender name="appenderFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+            </encoder>
+            <file>${LOG_FILE}</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_FILE}.%d</fileNamePattern>
+                <maxHistory>20</maxHistory>
+            </rollingPolicy>
+        </appender>                        
+        <root level="INFO">
+            <appender-ref ref="appenderConsole" />
+            <!--<appender-ref ref="appenderFile" />-->
+        </root>        
+    </springProfile>         
+
+</configuration>
