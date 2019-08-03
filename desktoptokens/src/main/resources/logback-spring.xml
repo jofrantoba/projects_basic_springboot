@@ -3,8 +3,8 @@
     <springProfile name="local">
         <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>         
         <include resource="org/springframework/boot/logging/logback/defaults.xml" />        
-        <property name="LOG_FILE" value="log/AppTokenCulqi.log}"/>                
-        <logger name="com.jofrantoba.culqitokens" level="DEBUG"/>
+        <property name="LOG_FILE" value="log/AppToken.log}"/>                
+        <logger name="com.jofrantoba.tokens" level="DEBUG"/>
         <logger name="org.springframework" level="INFO"/>    
         <appender name="appenderConsole" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
